@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Empleados</h1>
+<form method="post">
+    Nombre: <input type="text" name="nombre"><br>
+    Apellido: <input type="text" name="apellido"><br>
+    Dirección: <input type="text" name="direccion"><br>
+    Teléfono: <input type="text" name="telefono"><br>
+    Email: <input type="email" name="email"><br>
+    Fecha de Contratación: <input type="date" name="fecha_contratacion"><br>
+    Puesto: <input type="text" name="puesto"><br>
+    Salario: <input type="text" name="salario"><br>
+    Activo: <input type="checkbox" name="activo" value="1" checked><br>
+    <input type="submit" value="Registrar Empleado">
+</form>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Fecha de Contratación</th>
+        <th>Puesto</th>
+        <th>Salario</th>
+        <th>Activo</th>
+    </tr>
+    {% for empleado in empleados %}
+    <tr>
+        <td>{{ empleado.id }}</td>
+        <td>{{ empleado.nombre }}</td>
+        <td>{{ empleado.apellido }}</td>
+        <td>{{ empleado.direccion }}</td>
+        <td>{{ empleado.telefono }}</td>
+        <td>{{ empleado.email }}</td>
+        <td>{{ empleado.fecha_contratacion }}</td>
+        <td>{{ empleado.puesto }}</td>
+        <td>{{ empleado.salario }}</td>
+        <td>{{ empleado.activo }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

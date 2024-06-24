@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Clientes</h1>
+<form method="post">
+    Nombre: <input type="text" name="nombre"><br>
+    Apellido: <input type="text" name="apellido"><br>
+    Dirección: <input type="text" name="direccion"><br>
+    Teléfono: <input type="text" name="telefono"><br>
+    Email: <input type="email" name="email"><br>
+    Fecha de Registro: <input type="date" name="fecha_registro"><br>
+    Activo: <input type="checkbox" name="activo" value="1" checked><br>
+    Notas: <input type="text" name="notas"><br>
+    <input type="submit" value="Registrar Cliente">
+</form>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Fecha de Registro</th>
+        <th>Activo</th>
+        <th>Notas</th>
+    </tr>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.apellido }}</td>
+        <td>{{ cliente.direccion }}</td>
+        <td>{{ cliente.telefono }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.fecha_registro }}</td>
+        <td>{{ cliente.activo }}</td>
+        <td>{{ cliente.notas }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
